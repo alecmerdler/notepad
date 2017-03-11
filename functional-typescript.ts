@@ -8,8 +8,8 @@ type Stop = {kind: "Stop"};
 type Cmd = Go
          | Stop;
 
-type State = boolean;
-type Domain = boolean | null;
+type State = {stopped: boolean, steps: number};
+type Domain = State | null;
 
 
 //
@@ -24,11 +24,11 @@ var cmd: (a: Cmd) => (state: State) => Domain;
 cmd = (a: Cmd) => {
     switch (a.kind) {
         case "Go": return (state: State) => {
-            if (!state) return true;
+            if (state.stopped) return {stopped: false, steps: state.steps};
             else return null;
         };
         case "Stop": return (state: State) => {
-            if (state) return false;
+            if (!state.stopped) return {stopped: true, steps: state.steps};
             else return null;
         };
     }
@@ -38,14 +38,14 @@ cmd = (a: Cmd) => {
 //
 // Testing
 //
-var domain: Domain = cmd({kind: "Go"})(false);
-console.assert(domain == true);
+var domain: Domain = cmd({kind: "Go"})({stopped: true, steps: 0});
+console.assert(domain.stopped == false);
 
-domain = cmd({kind: "Stop"})(true);
-console.assert(domain == false);
+domain = cmd({kind: "Stop"})({stopped: false, steps: 0});
+console.assert(domain.stopped == true);
 
-domain = cmd({kind: "Go"})(true);
+domain = cmd({kind: "Go"})({stopped: false, steps: 0});
 console.assert(domain == null);
 
-domain = cmd({kind: "Stop"})(false);
+domain = cmd({kind: "Stop"})({stopped: true, steps: 0});
 console.assert(domain == null);
