@@ -1,0 +1,48 @@
+<style>
+    .app-navbar-container {
+        width: 100%;
+    }
+    .app-navbar-container {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<script>
+    var importDoc = document.currentScript.ownerDocument;
+
+    class AppNavbar extends HTMLElement {
+
+        static get observedAttributes() {
+            return ['title'];
+        }
+
+        get title() {
+            return this.getAttribute('title');
+        }
+
+        set title(newTitle) {
+            this.setAttribute('title', newTitle);
+        }
+
+        constructor() {
+            super();
+            this.innerHTML = `
+                <div class="app-navbar-container">
+                    <h1>${this.title}</h1>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Explore</a></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            console.debug(name, oldValue, newValue);
+        }
+    }
+
+    window.customElements.define('app-navbar', AppNavbar);
+</script>

@@ -25,11 +25,11 @@ cmd = (a: Cmd) => {
     switch (a.kind) {
         case "Go": return (state: State) => {
             if (state.stopped) return {stopped: false, steps: state.steps};
-            else return null;
+            else               return null;
         };
         case "Stop": return (state: State) => {
             if (!state.stopped) return {stopped: true, steps: state.steps};
-            else return null;
+            else                return null;
         };
     }
 };

@@ -1,0 +1,32 @@
+
+<!-- dockerfile-select.component.html -->
+<select ng-model="$ctrl.path"
+        ng-change="$ctrl.checkPath()">
+    <option ng-repeat="path in $ctrl.paths"
+            value="path">
+        {{ path }}
+    </option>
+</select>
+
+
+<dockerfile-select paths="$ctrl.availablePaths"
+                   (path-changed)="$ctrl.updatePath($event)"></dockerfile-select>
+
+
+<div addClass="highlight-red">Highlight me red!</div>
+
+
+<linear-workflow>
+  <linear-workflow-section section-id="firstSection"></linear-workflow-section>
+  <linear-workflow-section section-id="secondSection"></linear-workflow-section>
+  <linear-workflow-section section-id="thirdSection"></linear-workflow-section>
+</linear-workflow>
+
+
+
+
+
+
+
+
+afdsa
