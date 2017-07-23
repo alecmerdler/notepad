@@ -6,11 +6,7 @@ import { Component } from './decorators/component';
 })
 class AppComponent extends HTMLElement {
 
-    constructor() {
-        super();
-    }
-
     public connectedCallback(): void {
-
+        console.log("I'm alive!");
     }
 }
