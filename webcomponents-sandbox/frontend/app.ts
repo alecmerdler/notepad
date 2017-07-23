@@ -12,16 +12,13 @@ class AppComponent extends HTMLElement implements OnConnect {
     }
 
     public connectedCallback(): void {
-        console.log("I'm alive!");
         this.render();
     }
 
     public render(): string {
-        let template: string = `
+        return `
             <h1>Hello World!</h1>
             <input type="text">
         `;
-
-        return template;
     }
 }

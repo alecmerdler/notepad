@@ -14,7 +14,7 @@ export function Component(componentData: ComponentData) {
         throw new Error('Selector must contain a "-"');
     }
 
-    return function(constructor: Function) {
+    return (constructor: Function) => {
         // Register custom element
         window.customElements.define(componentData.selector, constructor);
 
