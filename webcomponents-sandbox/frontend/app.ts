@@ -1,15 +1,15 @@
 import { Component } from './decorators/component';
 import { OnConnect } from './interfaces/index';
 
+// FIXME: Need to import component to include in bundle and use or it is removed from bundle
+import { NavbarComponent } from './components/navbar';
+console.log(NavbarComponent == NavbarComponent);
+
 
 @Component({
     selector: 'my-app',
 })
-class AppComponent extends HTMLElement implements OnConnect {
-
-    constructor() {
-        super();
-    }
+export class AppComponent extends HTMLElement implements OnConnect {
 
     public connectedCallback(): void {
         this.render();
@@ -17,8 +17,10 @@ class AppComponent extends HTMLElement implements OnConnect {
 
     public render(): string {
         return `
-            <h1>Hello World!</h1>
-            <input type="text">
+            <div style="display: flex; flex-direction: column;">
+                <my-navbar title="'My App'"
+                           visible></my-navbar>
+            </div>
         `;
     }
 }

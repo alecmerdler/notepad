@@ -9,7 +9,7 @@ export type ComponentData = {
 /**
  * Class decorator that registers the class as a web component using the given component data.
  */
-export function Component(componentData: ComponentData) {
+export const Component = (componentData: ComponentData) => {
     if (componentData.selector.indexOf('-') == -1) {
         throw new Error('Selector must contain a "-"');
     }
@@ -23,11 +23,12 @@ export function Component(componentData: ComponentData) {
         // constructor.prototype.attachShadow({mode: 'open'});
 
         // Intercept 'render' method
-        const originalRenderFn: RenderFn = constructor.prototype.render;
+        const originalRenderFn: RenderFn = constructor.prototype.render.bind(constructor);
+        console.log(constructor.prototype.title.bind(constructor.prototype));
         constructor.prototype.render = () => {
             const template: string = originalRenderFn();
 
-            // FIXME: Setting all matching elements' 'innerHTML' instead of shadow DOM
+            // FIXME: Setting all matching elements' 'innerHTML' instead of using shadow DOM
             (<any>window.document.querySelectorAll(componentData.selector)).forEach((elem) => {
                 elem.innerHTML = originalRenderFn();
             });
@@ -35,7 +36,7 @@ export function Component(componentData: ComponentData) {
             return template;
         };
     }
-}
+};
 
 
 type RenderFn = () => string;
