@@ -6,7 +6,7 @@
     "outDir": "./public/dist/build/",
     "target": "es5",
     "lib": ["dom", "es2015"],
-    "jsx": "react",
+    "jsx": "preserve",
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "sourceMap": true

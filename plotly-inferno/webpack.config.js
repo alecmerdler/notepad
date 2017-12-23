@@ -1,4 +1,5 @@
 const path = require('path');
+const transformInferno = require('ts-transform-inferno').default;
 
 module.exports = {
   entry: {
@@ -19,6 +20,11 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [transformInferno({classwrap: true})]
+          })
+        }
       },
       {
         test: /\.css$/,

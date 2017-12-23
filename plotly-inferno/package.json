@@ -1,21 +1,21 @@
 {
-  "name": "plotly-react",
+  "name": "plotly-inferno",
   "scripts": {
-    "dev": "webpack --watch --progress"
+    "dev": "webpack --watch --progress",
+    "build": "NODE_ENV=production webpack --progress"
   },
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
+    "inferno": "^3.10.1",
     "plotly.js": "^1.31.2",
-    "prop-types": "^15.6.0",
-    "react": "16.x",
-    "react-dom": "16.x"
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
-    "@types/react": "^16.0.31",
-    "@types/react-dom": "^16.0.3",
+    "@types/plotly.js": "^1.28.10",
     "css-loader": "^0.28.7",
     "ts-loader": "^3.2.0",
+    "ts-transform-inferno": "^0.7.0",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0"
   }
