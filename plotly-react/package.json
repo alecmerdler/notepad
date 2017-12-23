@@ -1,0 +1,22 @@
+{
+  "name": "plotly-react",
+  "scripts": {
+    "dev": "webpack --watch --progress"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "plotly.js": "^1.31.2",
+    "prop-types": "^15.6.0",
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.31",
+    "@types/react-dom": "^16.0.3",
+    "css-loader": "^0.28.7",
+    "ts-loader": "^3.2.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  }
+}
