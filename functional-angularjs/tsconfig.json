@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "lib": ["dom", "es2015"],
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    "./app/*.ts"
+  ]
+}

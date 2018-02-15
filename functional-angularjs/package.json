@@ -1,0 +1,25 @@
+{
+  "name": "functional-angularjs",
+  "version": "1.0.0",
+  "description": "Building functional stateless components in AngularJS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node -O '{\"module\":\"commonjs\"}' ./node_modules/.bin/webpack --watch --progress",
+    "build": "rm -rf ./public/dist && NODE_ENV=production ts-node -O '{\"module\":\"commonjs\"}' ./node_modules/.bin/webpack"
+  },
+  "author": "Alec Merdler",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "lit-ht ml": "^0.9.0"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.42",
+    "@types/node": "^9.4.6",
+    "@types/webpack": "^3.8.7",
+    "ts-loader": "^3.5.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.7.1",
+    "webpack": "^3.11.0"
+  }
+}
