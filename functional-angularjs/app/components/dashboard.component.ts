@@ -4,10 +4,11 @@ export const Dashboard: IComponentOptions = {
   bindings: {
 
   },
-  controller: class Controller implements IController {
-    public readonly name: string;
-    constructor() {
-      this.name = 'OpenShift';
+  controller: class implements IController {
+    public readonly name = 'OpenShift';
+
+    public $onInit() {
+
     }
   },
   template: `

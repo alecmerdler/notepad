@@ -1,0 +1,21 @@
+{
+  "name": "lit-html-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node -O '{\"module\":\"commonjs\"}' ./node_modules/.bin/webpack --watch --progress",
+    "build": "NODE_ENV=production ts-node -O '{\"module\":\"commonjs\"}' ./node_modules/.bin/webpack"
+  },
+  "dependencies": {
+    "lit-html": "^0.9.0"
+  },
+  "devDependencies": {
+    "@types/webpack": "^4.1.0",
+    "ts-loader": "^4.0.1",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  }
+}

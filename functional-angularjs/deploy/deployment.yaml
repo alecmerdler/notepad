@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata: 
+  name: functional-angularjs
+spec:
+  replicas: 2
+  selector:
+    matchLabels: 
+      app: functional-angularjs
+  template:
+    metadata:
+      labels:
+        app: functional-angularjs
+    spec:
+      containers:
+      - name: functional-angularjs
+        image: quay.io/alecmerdler/functional-angularjs
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always

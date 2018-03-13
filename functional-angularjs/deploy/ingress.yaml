@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ecorp-dev-ingress
+  annotations:
+    kubernetes.io/ingress.class: tectonic
+spec:
+  rules:
+    - host: fractional.io
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: functional-angularjs
+              servicePort: 80
