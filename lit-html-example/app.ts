@@ -1,6 +1,9 @@
 import { html, render } from 'lit-html/lib/lit-extended';
 import { TemplateResult } from 'lit-html';
 
+// FIXME: `style-loader` makes this return an empty object
+import * as styles from './app.css';
+
 export type Connect = (store: any) => <P extends ConnectProps>(component: Component<P>) => WrappedComponent<Omit<P, "dispatch">>
 export const connect: Connect = (store) => (component) => {
   // FIXME: Replace `as any` with proper type
@@ -13,8 +16,10 @@ export const App: Component<AppProps> = (props) => {
     props.dispatch({name: 'Alec'});
   };
 
-  return html`<div class="lit-app">
-    <button onclick=${onClick}>Engage</button>
+  console.log(styles);
+
+  return html`<div class="${styles['.lit-app']}">
+    <button onclick="${onClick}">Engage</button>
     <div>
       ${props.name ? props.name.toUpperCase() : 'Unknown'}
     </div>

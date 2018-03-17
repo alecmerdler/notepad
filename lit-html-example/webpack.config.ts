@@ -17,6 +17,13 @@ export default {
       test: /(\.jsx?)|(\.tsx?)$/,
       exclude: /node_modules/,
       loader: 'ts-loader',
+    }, {
+      test: /.css$/,
+      exclude: /node_modules/,
+      use: [
+        {loader: 'style-loader'},
+        {loader: 'css-loader'},
+      ]
     }],
   },
   devtool: 'cheap-module-source-map',
